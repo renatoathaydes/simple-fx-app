@@ -2,3 +2,11 @@ apply plugin: 'java'
 
 sourceCompatibility = 1.8
 version = '1.0'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testCompile 'com.athaydes.automaton:Automaton:1.1.0'
+}
