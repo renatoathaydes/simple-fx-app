@@ -17,10 +17,11 @@ import javafx.stage.Stage;
  */
 public class SimpleFxApp extends Application {
 
-    Label status = new Label();
+    Label status;
 
     @Override
     public void start( Stage primaryStage ) throws Exception {
+        status = new Label();
         status.setId( "status-label" );
         VBox panel = new VBox( 20 );
         panel.getChildren().addAll(
