@@ -18,6 +18,9 @@ import javafx.stage.Stage;
 public class SimpleFxApp extends Application {
 
     Label status;
+    TextField nameField;
+    TextField emailField;
+    TextArea commentsField;
 
     @Override
     public void start( Stage primaryStage ) throws Exception {
@@ -25,16 +28,16 @@ public class SimpleFxApp extends Application {
         status.setId( "status-label" );
         VBox panel = new VBox( 20 );
         panel.getChildren().addAll(
-                row( "Name", new TextField() ),
-                row( "Email", new TextField() ),
-                row( "Comments", new TextArea() ),
+                row( "Name", nameField = new TextField() ),
+                row( "Email", emailField = new TextField() ),
+                row( "Comments", commentsField = new TextArea() ),
                 row( "", buttons() ),
                 status
         );
         HBox root = new HBox( 10 );
         root.getChildren().addAll( panel );
         HBox.setMargin( panel, new Insets( 10 ) );
-        Scene scene = new Scene( root, 500, 500 );
+        Scene scene = new Scene( root, 500, 400 );
         primaryStage.setScene( scene );
         primaryStage.centerOnScreen();
         primaryStage.show();
@@ -53,12 +56,17 @@ public class SimpleFxApp extends Application {
         Button cancel = new Button( "Cancel" );
         cancel.setOnAction( ( e ) -> status.setText( "You cancelled" ) );
         Button ok = new Button( "OK" );
-        ok.setOnAction( ( e ) -> status.setText( "Completed!" ) );
+        ok.setOnAction( ( e ) -> status.setText( computeStatus() ) );
         buttons.getChildren().addAll(
                 cancel,
                 ok
         );
         return buttons;
+    }
+
+    private String computeStatus() {
+        return "Name: " + nameField.getText() + ", Email: " + emailField.getText() +
+                ", Comments: " + commentsField.getText();
     }
 
     public static void main( String[] args ) {

@@ -28,7 +28,7 @@ public class SimpleFxAppTest {
     }
 
     @Test
-    public void runScript() {
+    public void runScripts() {
         Writer writer = new Writer();
         AutomatonScriptRunner.getInstance().run( "src/test/groovy/", writer );
 
