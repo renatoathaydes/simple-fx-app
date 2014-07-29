@@ -3,6 +3,7 @@ package com.athaydes.automaton.tests;
 import com.athaydes.automaton.FXApp;
 import com.athaydes.automaton.cli.AutomatonScriptRunner;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -29,8 +30,8 @@ public class SimpleFxAppTest {
         }
     }
 
-    @Before
-    public void setup() {
+    @BeforeClass
+    public static void setup() {
         FXApp.startApp(new SimpleFxApp());
     }
 
@@ -44,7 +45,12 @@ public class SimpleFxAppTest {
         runScript("src/test/groovy/secondAScript.groovy");
     }
 
-    public void runScript(String path) {
+    public static void runScript(String path) {
+        try { // let Scene get started properly, may take some time as Automaton replaces the Scene between tests
+            Thread.sleep(1000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         ScriptOutputCapturer writer = new ScriptOutputCapturer();
         AutomatonScriptRunner.getInstance().run(path, writer);
 

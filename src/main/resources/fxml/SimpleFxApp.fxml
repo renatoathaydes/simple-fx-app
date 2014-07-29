@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox fx:controller="com.athaydes.automaton.tests.fxml.AppPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0"
+      prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="340.0" prefWidth="393.0" spacing="20.0">
+         <children>
+            <HBox prefHeight="39.0" prefWidth="393.0" spacing="10.0">
+               <children>
+                  <Label style="-fx-min-width: 200;" text="Name:" />
+                  <TextField fx:id="nameField" />
+               </children>
+               <opaqueInsets>
+                  <Insets top="10.0" />
+               </opaqueInsets>
+            </HBox>
+            <HBox prefHeight="39.0" prefWidth="393.0" spacing="10.0">
+               <children>
+                  <Label style="-fx-min-width: 200;" text="Email" />
+                  <TextField fx:id="emailField" />
+               </children>
+            </HBox>
+            <HBox prefHeight="124.0" spacing="10.0">
+               <children>
+                  <Label style="-fx-min-width: 200;" text="Comments:" />
+                  <TextArea fx:id="commentsField" prefHeight="250.0" prefWidth="400.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="36.0" prefWidth="393.0" spacing="10.0">
+               <children>
+                  <Button onAction="#onCancel" mnemonicParsing="false" text="Cancel" />
+                  <Button onAction="#onOK" mnemonicParsing="false" text="OK" />
+               </children>
+               <padding>
+                  <Insets left="210.0" />
+               </padding>
+            </HBox>
+            <Label id="status-label" fx:id="status" prefHeight="17.0" prefWidth="399.0" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+   </children>
+   <opaqueInsets>
+      <Insets left="10.0" />
+   </opaqueInsets>
+   <padding>
+      <Insets left="10.0" top="10.0" />
+   </padding>
+</HBox>
